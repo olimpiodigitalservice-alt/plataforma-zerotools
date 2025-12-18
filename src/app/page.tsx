@@ -157,38 +157,38 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#F9FAFB]">
+      <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-[#55C1B3] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[#4A4A4A]">Carregando...</p>
+          <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-muted-foreground">Carregando...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
       {/* Header */}
-      <header className="bg-white border-b border-[#E5E7EB] sticky top-0 z-50">
+      <header className="bg-white dark:bg-slate-900 border-b sticky top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-slate-900/80">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#55C1B3] rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                 <Flame className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-[#111111]">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   ZeroTools
                 </h1>
-                <p className="text-xs text-[#4A4A4A]">Fitness & Nutrition Platform</p>
+                <p className="text-xs text-muted-foreground">Fitness & Nutrition Platform</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="hover:bg-[#F9FAFB]">
-                <Bell className="w-5 h-5 text-[#4A4A4A]" />
+              <Button variant="ghost" size="icon">
+                <Bell className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-[#F9FAFB]">
-                <Settings className="w-5 h-5 text-[#4A4A4A]" />
+              <Button variant="ghost" size="icon">
+                <Settings className="w-5 h-5" />
               </Button>
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function Home() {
             value={stats.calories}
             goal={2200}
             icon={Utensils}
-            color="bg-[#55C1B3]"
+            color="bg-emerald-500"
             progress={(stats.calories / 2200) * 100}
           />
           <StatsCard
@@ -214,7 +214,7 @@ export default function Home() {
             value={`${stats.water_ml}ml`}
             goal={`${stats.water_goal_ml}ml`}
             icon={Droplet}
-            color="bg-[#55C1B3]"
+            color="bg-blue-500"
             progress={(stats.water_ml / stats.water_goal_ml) * 100}
           />
           <StatsCard
@@ -222,38 +222,38 @@ export default function Home() {
             value={`${stats.fasting_hours}h`}
             goal={`${stats.fasting_goal_hours}h`}
             icon={Clock}
-            color="bg-[#55C1B3]"
+            color="bg-amber-500"
             progress={(stats.fasting_hours / stats.fasting_goal_hours) * 100}
           />
           <StatsCard
             title="Treinos"
             value={stats.workouts_today}
             icon={Dumbbell}
-            color="bg-[#55C1B3]"
+            color="bg-orange-500"
           />
         </div>
 
         {/* Macros Card */}
-        <Card className="bg-white border border-[#E5E7EB] rounded-2xl shadow-sm">
+        <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-[#111111]">
-              <TrendingUp className="w-5 h-5 text-[#55C1B3]" />
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-purple-500" />
               Macronutrientes
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
-                <p className="text-2xl font-bold text-[#55C1B3]">{stats.protein}g</p>
-                <p className="text-sm text-[#4A4A4A] mt-1">Proteína</p>
+              <div className="text-center p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.protein}g</p>
+                <p className="text-sm text-muted-foreground mt-1">Proteína</p>
               </div>
-              <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
-                <p className="text-2xl font-bold text-[#55C1B3]">{stats.carbs}g</p>
-                <p className="text-sm text-[#4A4A4A] mt-1">Carboidratos</p>
+              <div className="text-center p-4 bg-amber-50 dark:bg-amber-950/20 rounded-lg">
+                <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">{stats.carbs}g</p>
+                <p className="text-sm text-muted-foreground mt-1">Carboidratos</p>
               </div>
-              <div className="text-center p-4 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
-                <p className="text-2xl font-bold text-[#55C1B3]">{stats.fats}g</p>
-                <p className="text-sm text-[#4A4A4A] mt-1">Gorduras</p>
+              <div className="text-center p-4 bg-rose-50 dark:bg-rose-950/20 rounded-lg">
+                <p className="text-2xl font-bold text-rose-600 dark:text-rose-400">{stats.fats}g</p>
+                <p className="text-sm text-muted-foreground mt-1">Gorduras</p>
               </div>
             </div>
           </CardContent>
@@ -266,8 +266,8 @@ export default function Home() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-[#111111]">Suplementos</h2>
-              <p className="text-sm text-[#4A4A4A]">
+              <h2 className="text-2xl font-bold">Suplementos</h2>
+              <p className="text-sm text-muted-foreground">
                 {stats.supplements_taken} / {stats.supplements_total} doses hoje
               </p>
             </div>
@@ -275,13 +275,13 @@ export default function Home() {
           </div>
 
           {supplements.length === 0 ? (
-            <Card className="p-12 text-center bg-white border border-[#E5E7EB] rounded-2xl shadow-sm">
+            <Card className="p-12 text-center">
               <div className="max-w-md mx-auto">
-                <div className="w-16 h-16 bg-[#F9FAFB] border border-[#E5E7EB] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Flame className="w-8 h-8 text-[#55C1B3]" />
+                <div className="w-16 h-16 bg-purple-100 dark:bg-purple-950/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Flame className="w-8 h-8 text-purple-500" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-[#111111]">Nenhum suplemento cadastrado</h3>
-                <p className="text-[#4A4A4A] mb-6">
+                <h3 className="text-xl font-semibold mb-2">Nenhum suplemento cadastrado</h3>
+                <p className="text-muted-foreground mb-6">
                   Adicione seus suplementos para começar a controlar seu consumo diário
                 </p>
                 <AddSupplementDialog onAdd={handleAddSupplement} />
@@ -303,9 +303,9 @@ export default function Home() {
         </div>
 
         {/* Coming Soon Modules */}
-        <Card className="bg-white border border-[#E5E7EB] rounded-2xl shadow-sm">
+        <Card className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 border-purple-200 dark:border-purple-800">
           <CardHeader>
-            <CardTitle className="text-[#111111]">
+            <CardTitle className="text-purple-900 dark:text-purple-100">
               🚀 Próximos Módulos
             </CardTitle>
           </CardHeader>
@@ -323,7 +323,7 @@ export default function Home() {
               ].map((module) => (
                 <div
                   key={module}
-                  className="p-3 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-center text-sm font-medium text-[#4A4A4A]"
+                  className="p-3 bg-white dark:bg-slate-900 rounded-lg text-center text-sm font-medium"
                 >
                   {module}
                 </div>
